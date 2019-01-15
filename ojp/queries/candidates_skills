@@ -1,0 +1,23 @@
+create table candidate_skills
+(		
+	candidate_skill_id	int		not null	primary key	,
+	candidate_id		int		not null			,
+	skill_id		int		not null			,
+	version			varchar(10)					,
+	duration		varchar(20)	not null			
+);
+
+alter table candidate_skills add constraint fk_candidate_skills_candidates
+foreign key(candidate_id)
+references candidates(candidate_id);
+
+alter table candidate_skills add constraint fk_candidate_skills_skills
+foreign key(skill_id)
+references skills(skill_id);
+
+alter table candidate_skills
+change candidate_skill_id
+candidate_skill_id int not null auto_increment;
+
+alter table candidate_skills
+add column certificate varchar(50);

@@ -1,0 +1,11 @@
+create table industry_types
+(
+	industry_type_id	int		not null	primary key	,
+	industry_type		varchar(30)	not null			
+);
+
+alter table industry_types
+change industry_type_id
+industry_type_id int not null auto_increment;
+
+insert into industry_types(industry_type) values('IT-Software'),('Retail'),('IT-Hadrware'),('Marketing'),('Manufacturing');

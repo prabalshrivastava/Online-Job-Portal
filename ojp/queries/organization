@@ -1,0 +1,45 @@
+create table organization
+(
+	organization_id		int		not null	primary key	,
+	organization		varchar(100)	not null			,
+	organization_type_id	int		not null			
+	
+);
+
+alter table organization
+add constraint fk_organization_organization_types
+foreign key(organization_type_id)
+references organization_types(organization_type_id);
+
+alter table organization
+change organization_id
+organization_id int not null auto_increment;
+
+insert into organization(organization,organization_type_id) values ('CBSE',1),('ICSE',1),('IB',1),('State board',1);
+insert into organization(organization,organization_type_id) values ('Indian Institute of Science, Bangalore',2);
+insert into organization(organization,organization_type_id) values ('Indian Institute of Technology, Kharagpur',2),('Indian Institute of Technology, Roorkee',2),	('Indian Institute of Technology, Kanpur',2),	('National Institute of Pharmaceutical Education and Research, Mohali',2),	('VIT University, Vellore',2);
+insert into organization(organization,organization_type_id) values ('University of Delhi, Delhi',2),	('Indian Institute of Technology, Bombay',2),	('Indian Institute of Technology, Delhi',2),	('Tata Institute of Fundamental Research, Mumbai',2);
+insert into organization(organization,organization_type_id) values ('Indian Institute of Technology, Guwahati',2),('Anna University, Chennai',2),	('Panjab University, Chandigarh',2),	('Indian Institute of Technology, Madras',2),	('Jawaharlal Nehru Centre for Advanced Scientific Research, Bangalore',2),	('All India Institute of Medical Sciences, New Delhi',2),	('Jadavpur University, Kolkata',2);
+insert into organization(organization,organization_type_id) values ('Banaras Hindu University, Varanasi',2),	('Institute of Chemical Technology, Mumbai',2),	('Postgraduate Institute of Medical Education and Research, Chandigarh',2),	('Aligarh Muslim University, Aligarh',2),	('University of Calcutta, Kolkata',2);
+insert into organization(organization,organization_type_id) values ('University of Hyderabad, Hyderabad',2),	('SASTRA University, Thanjavur',2),	('Bharathiar University, Coimbatore',2);
+insert into organization(organization,organization_type_id) values ('Sanjay Gandhi Postgraduate Institute of Medical Sciences, Lucknow',2),	('Indian Institute of Science Education and Research, Pune',2),	('Indian Institute of Technology, Indore',2),	('Jawaharlal Nehru University, New Delhi',2),	('National Institute of Technology, Tiruchirappalli',2);
+insert into organization(organization,organization_type_id) values ('Indian Institute of Science Education and Research, Kolkata',2);
+insert into organization(organization,organization_type_id) values ('Annamalai University, Annamalai Nagar',2),	('Visva Bharati, Santinikaten',2),	('Indian Institute of Science Education and Research, Thiruvananthapuram',2),	('National Institute of Technology, Rourkela',2),	('Guru Nanak Dev University, Amritsar',2);
+insert into organization(organization,organization_type_id) values ('University of Madras, Chennai',2),	('University of Rajasthan, Jaipur',2),	('University of Jammu, Jammu',2),	('Bharathidasan University, Tiruchirappalli',2),	('Shivaji University, Kolhapur',2),	('Indian Institute of Science Education and Research, Mohali',2);
+insert into organization(organization,organization_type_id) values ('Indian Statistical Institute, Kolkata',2),	('University of Pune, Pune',2),	('Indian Agricultural Research Institute, New Delhi',2);
+insert into organization(organization,organization_type_id) values ('Tezpur University, Tezpur',2),	('National Brain Research Centre, Gurgaon',2),	('Madurai Kamaraj University, Madurai',2);
+insert into organization(organization,organization_type_id) values ('Indian Institute of Technology, Ropar',2),	('Sri Venkateswara University, Tirupati',2),	('University of Allahabad, Allahabad',2),	('University of Burdwan, Bardhaman',2),	('Pondicherry University, Puducherry',2),	('Thapar University, Patiala',2);
+insert into organization(organization,organization_type_id) values ('National Institute of Mental Health and Neuro Sciences, Bangalore',2),	('Indian Institute of Engineering Science and Technology, Shibpur',2);
+insert into organization(organization,organization_type_id) values ('Jawaharlal Nehru Technological University, Hyderabad',2),	('National Institute of Technology, Durgapur',2),	('Sree Chitra Tirunal Institute for Medical Sciences and Technology, Thiruvananthapuram',2),	('Birla Institute of Technology and Science, Pilani',2);
+
+
+
+
+/*
+insert into organization(organization,organization_type_id) values ('SRM University, Chennai',2),	('University of Lucknow, Lucknow',2),	('King George's Medical University, Lucknow',2);
+insert into organization(organization,organization_type_id) values ('Indian School of Mines, Dhanbad',2),	('Jamia Hamdard, New Delhi',2),	('Sardar Vallabhbhai National Institute of Technology, Surat',2),	('Dr Harisingh Gour Vishwavidyalaya, Sagar',2);
+insert into organization(organization,organization_type_id) values ('Indian Veterinary Research Institute, Izatnagar',2),	('Birla Institute of Technology, Mesra',2),	('ABV- Indian Institute of Information Technology and Management, Gwalior',2);
+insert into organization(organization,organization_type_id) values ('Sri Ramachandra University, Chennai',2),	('Indian Institute of Science Education and Research, Bhopal',2),	('Forest Research Institute, Dehradun',2),	('Motilal Nehru National Institute of Technology, Allahabad',2);
+insert into organization(organization,organization_type_id) values ('Amrita Vishwa Vidyapeetham University, Coimbatore',2),('Indian Institute of Technology, Hyderabad',2),	('University of Kalyani, Kalyani',2),	('Maharshi Dayanand University, Rohtak',2);
+insert into organization(organization,organization_type_id) values ('Maharaja Sayajirao University of Baroda, Vadodara',2),	('Kuvempu University, Shankaraghatta',2);
+*/

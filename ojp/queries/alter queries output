@@ -1,0 +1,363 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 7
+Server version: 5.0.45-community-nt MySQL Community Edition (GPL)
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql> use ojp
+Database changed
+mysql> alter table job_shift add constraint
+    -> foreign key (job_id)
+    -> references jobs(job_id);
+Query OK, 0 rows affected (0.63 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> desc job_shift;
++--------------+---------+------+-----+---------+-------+
+| Field        | Type    | Null | Key | Default | Extra |
++--------------+---------+------+-----+---------+-------+
+| job_shift_id | int(11) | NO   | PRI |         |       |
+| job_id       | int(11) | NO   | MUL |         |       |
+| start_hour   | time    | NO   |     |         |       |
+| end_hour     | time    | NO   |     |         |       |
++--------------+---------+------+-----+---------+-------+
+4 rows in set (0.16 sec)
+
+mysql> desc job_score_criteria;
++-----------------------+---------+------+-----+---------+-------+
+| Field                 | Type    | Null | Key | Default | Extra |
++-----------------------+---------+------+-----+---------+-------+
+| jab_score_criteria_id | int(11) | NO   | PRI |         |       |
+| job_id                | int(11) | NO   |     |         |       |
+| ssc_score             | int(11) | NO   |     |         |       |
+| hsc_diploma_score     | int(11) | NO   |     |         |       |
+| graduation            | int(11) | NO   |     |         |       |
++-----------------------+---------+------+-----+---------+-------+
+5 rows in set (0.08 sec)
+
+mysql> drop table job_shift;
+Query OK, 0 rows affected (0.19 sec)
+
+mysql>  create table job_shift
+    -> (
+    ->  job_shift_id            int             not null        primary key     ,
+    ->  job_id                  int             not null                        ,
+    ->  start_hour              time            not null                        ,
+    ->  end_hour                time            not null
+    -> );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql>
+mysql> alter table job_shift add constraint fk_job_shift_jobs
+    -> foreign key (job_id)
+    -> references jobs(job_id);
+Query OK, 0 rows affected (0.33 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc job_shift;
++--------------+---------+------+-----+---------+-------+
+| Field        | Type    | Null | Key | Default | Extra |
++--------------+---------+------+-----+---------+-------+
+| job_shift_id | int(11) | NO   | PRI |         |       |
+| job_id       | int(11) | NO   | MUL |         |       |
+| start_hour   | time    | NO   |     |         |       |
+| end_hour     | time    | NO   |     |         |       |
++--------------+---------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> show indexes from job_shift;
++-----------+------------+-------------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+
+| Table     | Non_unique | Key_name          | Seq_in_index | Column_name  | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment |
++-----------+------------+-------------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+
+| job_shift |          0 | PRIMARY           |            1 | job_shift_id | A         |           0 |     NULL | NULL   |      | BTREE      |         |
+| job_shift |          1 | fk_job_shift_jobs |            1 | job_id       | A         |           0 |     NULL | NULL   |      | BTREE      |         |
++-----------+------------+-------------------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+
+2 rows in set (0.09 sec)
+
+mysql> show indexes from job_score_criteria;
++--------------------+------------+----------+--------------+-----------------------+-----------+-------------+----------+--------+------+------------+---------+
+| Table              | Non_unique | Key_name | Seq_in_index | Column_name           | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment |
++--------------------+------------+----------+--------------+-----------------------+-----------+-------------+----------+--------+------+------------+---------+
+| job_score_criteria |          0 | PRIMARY  |            1 | jab_score_criteria_id | A         |           0 |     NULL | NULL   |      | BTREE      |         |
++--------------------+------------+----------+--------------+-----------------------+-----------+-------------+----------+--------+------+------------+---------+
+1 row in set (0.01 sec)
+
+mysql> alter table job_score_criteria add constraint fk_job_score_criteria_jobs
+    -> foreign key(job_id)
+    -> references jobs(job_id);
+Query OK, 0 rows affected (0.27 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show indexes from job_score_criteria;
++--------------------+------------+----------------------------+--------------+-----------------------+-----------+-------------+----------+--------+------+------------+---------+
+| Table              | Non_unique | Key_name                   | Seq_in_index | Column_name           | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment |
++--------------------+------------+----------------------------+--------------+-----------------------+-----------+-------------+----------+--------+------+------------+---------+
+| job_score_criteria |          0 | PRIMARY                    |            1 | jab_score_criteria_id | A         |           0 |     NULL | NULL   |      | BTREE      |         |
+| job_score_criteria |          1 | fk_job_score_criteria_jobs |            1 | job_id                | A         |           0 |     NULL | NULL   |      | BTREE      |         |
++--------------------+------------+----------------------------+--------------+-----------------------+-----------+-------------+----------+--------+------+------------+---------+
+2 rows in set (0.00 sec)
+
+mysql> alter table applicants add constraint fk_applicants_jobs
+    -> foreign key(job_id)
+    -> references jobs(job_id);
+Query OK, 0 rows affected (0.34 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> alter table applicants add constraint fk_applicants_candidates
+    -> foreign key(candidate_id)
+    -> references candidates(candidate_id);
+Query OK, 0 rows affected (0.22 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> alter table applicants add constraint fk_applicants_status
+    -> foreign key(status_id)
+    -> references status(status_id);
+Query OK, 0 rows affected (0.52 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc applicants;
++--------------+---------+------+-----+---------+-------+
+| Field        | Type    | Null | Key | Default | Extra |
++--------------+---------+------+-----+---------+-------+
+| applicant_id | int(11) | NO   | PRI |         |       |
+| job_id       | int(11) | NO   | MUL |         |       |
+| candidate_id | int(11) | NO   | MUL |         |       |
+| status_id    | int(11) | NO   | MUL |         |       |
+| apply_date   | date    | NO   |     |         |       |
++--------------+---------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter table cities add constraint fk_cities_states
+    -> foreign key(state_id)
+    -> references states(state_id);
+Query OK, 0 rows affected (0.36 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show indexes from *;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*' at line 1
+mysql>  alter table pin_codes add constraint fk_pin_codes_cities
+    -> foreign key(city_id)
+    -> references cities(city_id);
+Query OK, 0 rows affected (0.41 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc users;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| user_id      | int(11)     | NO   | PRI |         |       |
+| user_name    | varchar(50) | NO   |     |         |       |
+| email        | varchar(50) | NO   | UNI |         |       |
+| password     | varchar(30) | NO   |     |         |       |
+| user_type_id | int(11)     | NO   | MUL |         |       |
++--------------+-------------+------+-----+---------+-------+
+5 rows in set (0.09 sec)
+
+mysql> desc branches;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| branch_id       | int(11)      | NO   | PRI |         |       |
+| branch_name     | varchar(50)  | NO   |     |         |       |
+| address         | varchar(500) | NO   |     |         |       |
+| pin_code_id     | int(11)      | NO   | MUL |         |       |
+| contact_person  | varchar(50)  | NO   |     |         |       |
+| conntact_number | varchar(50)  | NO   |     |         |       |
+| email           | varchar(50)  | NO   |     |         |       |
+| company_id      | int(11)      | NO   | MUL |         |       |
++-----------------+--------------+------+-----+---------+-------+
+8 rows in set (0.08 sec)
+
+mysql> alter table add constraint unique email;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'add constraint unique email' at line 1
+mysql> alter table branches add constraint unique email;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> alter table branches add unique email;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> alter table branches change email email varchar(50) not null unique;
+Query OK, 0 rows affected (0.42 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc branches;
++-----------------+--------------+------+-----+---------+-------+
+| Field           | Type         | Null | Key | Default | Extra |
++-----------------+--------------+------+-----+---------+-------+
+| branch_id       | int(11)      | NO   | PRI |         |       |
+| branch_name     | varchar(50)  | NO   |     |         |       |
+| address         | varchar(500) | NO   |     |         |       |
+| pin_code_id     | int(11)      | NO   | MUL |         |       |
+| contact_person  | varchar(50)  | NO   |     |         |       |
+| conntact_number | varchar(50)  | NO   |     |         |       |
+| email           | varchar(50)  | NO   | UNI |         |       |
+| company_id      | int(11)      | NO   | MUL |         |       |
++-----------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> alter table pin_codes
+    -> change pin_code
+    -> pin_code int not null unique;
+Query OK, 0 rows affected (0.25 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc pin_codes;
++-------------+---------+------+-----+---------+-------+
+| Field       | Type    | Null | Key | Default | Extra |
++-------------+---------+------+-----+---------+-------+
+| pin_code_id | int(11) | NO   | PRI |         |       |
+| pin_code    | int(11) | NO   | UNI |         |       |
+| city_id     | int(11) | NO   | MUL |         |       |
++-------------+---------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> alter table contact_types
+    -> change contact_type
+    -> contact_type varchar(20) not null unique;
+Query OK, 0 rows affected (0.36 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table contacts add constraint fk_contacts_contact_types
+    -> foreign key(contact_type_id)
+    -> references contact_types(contact_type_id);
+Query OK, 0 rows affected (0.36 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> alter table contacts add constraint fk_contacts_users
+    -> foreign key(user_id)
+    -> references users(user_id);
+Query OK, 0 rows affected (0.20 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table user_addresses
+    -> add constraint fk_user_addresses_users
+    -> foreign key(user_id)
+    -> references users(user_id);
+Query OK, 0 rows affected (0.34 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> alter table user_addresses
+    -> add constraint fk_user_addresses_contact_types
+    -> foreign key(contact_type_id)
+    -> references contact_types(contact_type_id);
+Query OK, 0 rows affected (0.19 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> alter table user_addresses
+    -> add constraint fk_user_addresses_pin_codes
+    -> foreign key(pin_code_id)
+    -> references pin_codes(pin_code_id);
+Query OK, 0 rows affected (0.24 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table organization_types
+    -> change organization_type_id
+    -> organization_type_id int not null unique;
+Query OK, 0 rows affected (0.34 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table organization
+    -> add constraint fk_organization_organization_types
+    -> foreign key(organization_type_id)
+    -> references organization_types(organization_type_id);
+Query OK, 0 rows affected (0.39 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table candidate_language
+    -> add constraint fk_candidate_language_laguages
+    -> foreign key(language_id)
+    -> references languages(language_id);
+ERROR 1005 (HY000): Can't create table '.\ojp\#sql-6a8_7.frm' (errno: 150)
+mysql>
+mysql> alter table candidate_language
+    -> add constraint fk_candidate_language_language_capabilities
+    -> foreign key(language_capability_id)
+    -> references language_capabilities(language_capability_id);
+Query OK, 0 rows affected (0.30 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc laguages;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| language_id | int(11)     | NO   | PRI |         |       |
+| language    | varchar(20) | NO   |     |         |       |
++-------------+-------------+------+-----+---------+-------+
+2 rows in set (0.27 sec)
+
+mysql> drop table laguages;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> create table languages
+    -> (
+    ->  language_id             int             not null        primary key     ,
+    ->  language                varchar(20)     not null
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> drop table languages;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> create table laguages
+    -> (
+    ->  language_id             int             not null        primary key     ,
+    ->  language                varchar(20)     not null
+    -> );
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> rename table laguages languages;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'languages' at line 1
+mysql> drop table laguages;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> create table languages
+    -> (
+    ->  language_id             int             not null        primary key     ,
+    ->  language                varchar(20)     not null
+    -> );
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> alter table candidate_language
+    -> add constraint fk_candidate_language_laguages
+    -> foreign key(language_id)
+    -> references languages(language_id);
+Query OK, 0 rows affected (0.22 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> alter table candidate_language
+    -> add constraint fk_candidate_language_language_capabilities
+    -> foreign key(language_capability_id)
+    -> references language_capabilities(language_capability_id);
+ERROR 1005 (HY000): Can't create table '.\ojp\#sql-6a8_7.frm' (errno: 121)
+mysql> desc skills
+    -> ;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| skill_id | int(11)     | NO   | PRI |         |       |
+| skill    | varchar(20) | NO   | UNI |         |       |
++----------+-------------+------+-----+---------+-------+
+2 rows in set (0.08 sec)
+
+mysql> alter table company_followers
+    -> add constraint fk_company_followers_companies
+    -> foreign key(company_id)
+    -> references companies(company_id);
+Query OK, 0 rows affected (0.31 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> alter table company_followers
+    -> add constraint fk_company_followers_candidates
+    -> foreign key(candidate_id)
+    -> references candidates(candidate_id);
+Query OK, 0 rows affected (0.20 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>

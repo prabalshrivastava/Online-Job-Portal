@@ -1,0 +1,23 @@
+create table job_qualification
+(
+	job_qualification_id		int	not null	primary key	,
+	job_id				int	not null			,
+	course_id			int	not null			
+);
+
+alter table job_qualification add constraint
+foreign key(job_id)
+references jobs(job_id);
+
+alter table job_qualification add constraint 
+foreign key(course_id)
+references courses(course_id);
+
+alter table job_qualification
+change job_qualification_id
+job_qualification_id int not null auto_increment;
+
+insert into job_qualification(job_id,course_id) values (6,1),(7,2),(8,4),(9,5);
+insert into job_qualification(job_id,course_id) values (6,6),(7,9),(8,7),(9,8);
+insert into job_qualification(job_id,course_id) values (10,1),(11,2),(12,4),(3,5);
+insert into job_qualification(job_id,course_id) values (5,7),(4,8);

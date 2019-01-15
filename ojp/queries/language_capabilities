@@ -1,0 +1,12 @@
+create table language_capabilities
+(
+	language_capability_id	int		not null	primary key	,
+	language_capability	varchar(30)	not null			
+);
+
+alter table language_capabilities
+change language_capability_id
+language_capability_id int not null auto_increment;
+
+insert into language_capabilities(language_capability) values('read') , ('write') , ('speak') ,('read/write') , ('read/speak') , ('write/speak');
+insert into language_capabilities(language_capability) values('read/write/speak');

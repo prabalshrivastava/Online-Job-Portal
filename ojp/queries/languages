@@ -1,0 +1,11 @@
+create table languages
+(
+	language_id		int		not null	primary key	,
+	language		varchar(20)	not null		
+);
+
+alter table languages
+change language_id
+language_id int not null auto_increment;
+
+insert into languages(language) values('French'),('Malay-Indonesian'),('Portuguese'),('Bengali'),('Arabic'),('Russian'),('Spanish'),('Hindustani');

@@ -1,0 +1,19 @@
+create table courses
+(	
+	course_id		int		not null	primary key	,
+	course			varchar(50)	not null			,
+	course_type_id		int		not null			
+
+);
+
+alter table courses
+change course_id
+course_id int not null auto_increment;
+
+alter table courses
+add constraint fk_courses_course_types
+foreign key(course_type_id)
+references course_types(course_type_id);
+
+
+insert into courses(course) values ('BE/BTECH - Aerospace Engineering'),('BE/BTECH - Chemical Engineering'),('BE/BTECH - Civil Engineering'),('BE/BTECH - Computer Science & Engineering'),('BE/BTECH - Electrical Engineering'),('BE/BTECH - Mechanical Engineering'),('BE/BTECH - Metallurgical Engineering'),('BE/BTECH - Physics'),('BE/BTECH - Chemistry');

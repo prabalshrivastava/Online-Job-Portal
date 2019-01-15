@@ -1,0 +1,25 @@
+/* extra.css*/
+.extra{
+	display:none;
+	cursor:pointer;
+}
+.overextra{
+	cursor:pointer;
+	border:5px outset #FFCFFF;
+	background-color:#FFCFFF;
+	color:white;
+}
+.div_table{
+	display:table;
+}
+.div_tr{
+	display:table-row;
+}
+
+.div_td{
+	display:table-cell;
+	border: 2px outset #FFCFFF;
+	border-radius:8px;
+	padding:10px;
+
+}

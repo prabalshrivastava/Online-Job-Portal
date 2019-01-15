@@ -1,0 +1,49 @@
+create table candidates
+(
+	candidate_id		int		not null primary key	,
+	date_of_birth		date		not null		,
+	gender			boolean		not null		,
+	hobbies			varchar(100)				,
+	user_id			int		not null		,
+	marital_status		boolean		not null		,
+	country_id		int		not null		,
+	intrests		varchar(1000)				,
+	profile_pic_path	varchar(100)				,
+	resume_file_path	varchar(100)				,
+	resume_upload_date	date					,
+	strengths		varchar(1000)				,
+	weaknesses		varchar(1000)				,
+	curricular_activity	varchar(1000)				
+);
+
+alter table candidates add constraint fk_candidates_users foreign key(user_id)
+references users(user_id);
+
+alter table candidates add constraint fk_candidates_countries
+foreign key(country_id)
+references countries(country_id);
+
+alter table candidates
+change candidate_id
+candidate_id int not null auto_increment;
+
+alter table candidates
+change date_of_birth
+date_of_birth date;
+
+alter table candidates
+change gender 
+gender boolean;
+
+alter table candidates
+change marital_status
+marital_status boolean;
+
+alter table candidates
+change country_id
+country_id int;
+
+alter table candidates drop foreign key fk_candidates_users;
+alter table candidates drop index fk_candidates_users;
+
+alter table candidates add column father_name varchar(50),add column mother_name varchar(50);

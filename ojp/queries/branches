@@ -1,0 +1,24 @@
+create table branches
+(
+	branch_id	int		not null	primary key	,
+	branch_name	varchar(50)	not null			,
+	address		varchar(500)	not null			,
+	pin_code_id	int		not null			,
+	contact_person	varchar(50)	not null			,
+	conntact_number	varchar(50)	not null			,
+	email		varchar(50)	not null			,
+	company_id	int		not null			
+);
+alter table branches change email email varchar(50) not null unique;
+
+alter table branches add constraint fk_branches_pin_codes
+foreign key(pin_code_id)
+references pin_codes(pin_code_id);
+
+alter table branches add constraint fk_branches_companies
+foreign key(company_id)
+references companies(company_id);
+
+alter table branches
+change branch_id
+branch_id int not null auto_increment;

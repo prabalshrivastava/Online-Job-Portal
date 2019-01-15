@@ -1,0 +1,12 @@
+create table user_types
+(
+	user_type_id		int		not null	primary	key	,
+	user_type		varchar(20)	not null			
+);
+
+alter table user_types
+change user_type_id
+user_type_id int not null auto_increment;
+
+insert into user_types(user_type)
+values ('candidate'),('company');

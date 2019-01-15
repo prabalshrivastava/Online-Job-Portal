@@ -1,0 +1,39 @@
+this page explain how the eval works
+[{'languageId':'1','language':'French'},{'languageId':'2','language':'Malay-Indonesian'},{'languageId':'3','language':'Portuguese'},{'languageId':'4','language':'Bengali'},{'languageId':'5','language':'Arabic'},{'languageId':'6','language':'Russian'},{'languageId':'7','language':'Spanish'},{'languageId':'8','language':'Hindustani'}]
+123----4-----3526352---4----253---6--32723----4-----3526352---4----253--------6-------32723----4-----3526352---4----253----6-----32723----4-----3526352---4----253---6---32723----4-----3526352---4----253---6--32723----4-----3526352---4----253---6---32723----4-----3526352---4----253---6---32723----4-----3526352---4----253----6-----321
+
+
+1 ==> start of the array
+2 ==> start of the object contained inside the array
+3 ==> the property of the object must be wrapped inside single quote
+4 ==> the property of the object ---> 1st property is @languageId@ 2nd is @language@
+5 ==> the object property and its value must be seperated by a colon
+6 ==> the value of the object
+7 ==> this comma seperates the 
+
+
+{'languageId':'1','language':'French'} 
+this will be one object
+properties --> languageId , language
+values ------> 1 , French
+this object is itself wrapped with many such objects inside an array(collection)
+with index 0 for this object and so on for the others
+
+
+
+
+//candidate language 
+//we are parsing this to get the languages that a candidate can speak
+//then we'll display it
+[
+	{'candidateLanguageId':'6','language':{'languageId':'1','language':'French'},'languageCapability':{'languageCapabilityId':'22','languageCapability':'read/write/speak'},'candidate':'models.Candidate@31441098'},
+	{'candidateLanguageId':'7','language':{'languageId':'1','language':'French'},'languageCapability':{'languageCapabilityId':'22','languageCapability':'read/write/speak'},'candidate':'models.Candidate@6b9d846c'},
+	{'candidateLanguageId':'8','language':{'languageId':'1','language':'French'},'languageCapability':{'languageCapabilityId':'22','languageCapability':'read/write/speak'},'candidate':'models.Candidate@326105a6'}
+	[{'candidateLanguageId':'10','language':{'languageId' : '1','language' : 'French'},'languageCapability':{'languageCapabilityId' : '16','languageCapability' : 'read'},'candidate':'{'user':{'userId':'13,'userName':'prabal,'email':'prabal,'password':'1234,'userType':{'userTypeId' : '1','userType' : 'candidate'}},'candidateId':'11,'dateOfBirth':'1994-07-07,'gender':'false,'hobbies':'abcdefgh,'maritalStatus':'false,'country':{'countryId' : '1'	,	'country' : 'india'} ,'intrest':','profilePicPath':'Screenshot (14).png,'resumeFilePath':'null,'resumeUploadDate':'null,'strengths':','weaknesses':','curricularActivity':','fatherName':'gkshrivastava,'motherName':'vineeta shrivastava'}'}, {'candidateLanguageId':'11','language':{'languageId' : '7'	,	'language' : 'Spanish'},'languageCapability':{'languageCapabilityId' : '16'	,	'languageCapability' : 'read'},'candidate':'{'user':{'userId':'13,'userName':'prabal,'email':'prabal,'password':'1234,'userType':{'userTypeId' : '1','userType' : 'candidate'}},'candidateId':'11,'dateOfBirth':'1994-07-07,'gender':'false,'hobbies':'abcdefgh,'maritalStatus':'false,'country':{'countryId' : '1'	,	'country' : 'india'} ,'intrest':','profilePicPath':'Screenshot (14).png,'resumeFilePath':'null,'resumeUploadDate':'null,'strengths':','weaknesses':','curricularActivity':','fatherName':'gkshrivastava,'motherName':'vineeta shrivastava'}'}]
+]
+
+
+note : 
+String must be written in single or double quote
+Integer must not be wrapped in quotes otherwise it would be considered as string
+Date is not suported in json ie it must be represented as string

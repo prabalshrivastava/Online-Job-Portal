@@ -1,0 +1,22 @@
+create table company_followers
+(
+	company_followers_id		int	not null	primary key	,
+	company_id			int	not null			,
+	candidate_id			int	not null			
+);
+
+
+alter table company_followers
+add constraint fk_company_followers_companies
+foreign key(company_id)
+references companies(company_id);
+
+alter table company_followers
+add constraint fk_company_followers_candidates
+foreign key(candidate_id)
+references candidates(candidate_id);
+
+alter table company_followers
+change company_followers_id
+company_followers_id int not null auto_increment;
+

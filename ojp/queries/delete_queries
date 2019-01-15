@@ -1,0 +1,1 @@
+delete c1 from candidate_skills c1,candidate_skills c2 where c1.candidate_id = c2.candidate_id && c1.skill_id = c2.skill_id && c1.version = c2.version && c1.duration = c2.duration && c1.certificate = c2.certificate && c1.candidate_skill_id < c2.candidate_skill_id;

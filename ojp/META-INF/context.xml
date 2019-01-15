@@ -1,0 +1,16 @@
+<Context>
+	<resource	name="jdbc/app" 
+				auth="container"
+				type="javax.sql.data.DataSource"
+				removeAbondoned="true"
+				logAbondoned="true"
+				removeAbondonedTimeout="30"
+				maxActive="100"
+				maxIdle="30"
+				maxWait="15000"
+				username="root"
+				password="1234"
+				driverClassName="com.mysql.jdbc.Driver"
+				uri="jdbc:mysql://localhost:3306/ojp" />
+	
+</Context>

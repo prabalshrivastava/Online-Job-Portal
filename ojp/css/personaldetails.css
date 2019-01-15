@@ -1,0 +1,63 @@
+td{
+	border:2px outset #FFCFFF;
+	border-radius:5px;
+
+	height:auto;	
+	margin-top:200px;
+
+	height:auto;
+}
+.td_label{
+	/*border:2px inset #FFCFFF;*/
+	text-align:right;
+	width:200px;
+	white-space:nowrap;
+	padding-right:23px;
+}
+.td_report {
+	width:500px;
+	padding:5px;
+}
+.td_form{
+	display:none;
+	width:400px;
+}
+.form_data_parent{
+	width:400px;
+}
+#td_update{
+	padding-left:145px;
+}
+tr{
+	height: 37px;
+}
+.data{
+	cursor:pointer;
+}
+.over{
+	color:red;
+	cursor:pointer;
+}
+.out{
+	cursor:default;
+}
+/*keep user_data at last */
+.user_data{
+	display:none;
+}
+.message{
+	display:none;
+	width:170px;
+}
+img{
+/*	border:2px outset red;*/
+}
+.td_update_reset_cancel{
+	background-color:#FFCFFF;
+	cursor:pointer;
+	display:none;
+}
+.form_data{
+	width:50%;
+	border-radius:10px;
+}	 

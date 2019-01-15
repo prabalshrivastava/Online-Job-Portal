@@ -1,0 +1,17 @@
+create table job_shift
+(
+	job_shift_id		int		not null	primary key	,
+	job_id			int		not null			,
+	start_hour		time		not null			,	
+	end_hour		time		not null			
+);
+
+alter table job_shift add constraint fk_job_shift_jobs
+foreign key (job_id)
+references jobs(job_id);
+
+alter table job_shift
+change job_shift_id
+job_shift_id int not null auto_increment;
+
+insert into job_shift(job_id,start_hour,end_hour) values(3,'23:58:00','12:58:00'),(4,'23:58:00','12:58:00'),(5,'23:58:00','12:58:00'),(6,'23:58:00','12:58:00'),(7,'23:58:00','12:58:00'),(8,'23:58:00','12:58:00'),(9,'23:58:00','12:58:00'),(10,'23:58:00','12:58:00'),(11,'23:58:00','12:58:00'),(12,'23:58:00','12:58:00');

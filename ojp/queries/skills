@@ -1,0 +1,12 @@
+create table skills
+(
+	skill_id		int		not null	primary key	,
+	skill			varchar(20)	not null	unique		
+);
+
+alter table skills
+change skill_id
+skill_id int not null auto_increment;
+
+insert into skills(skill) values ('Logo'),('Lua'),('Javascript'),('Python'),('Ruby'),('Lolcode'),('Cobol'),('Basic'),('Java'),('C#'),('Pascal'),('C'),('Objective C'),('Fortran'),('Smalltalk'),('C++'),('Haskell'),('Lisp'),('Verilog'),('Assembly');
+

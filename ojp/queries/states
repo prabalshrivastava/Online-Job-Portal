@@ -1,0 +1,24 @@
+create table states
+(
+	state_id		int		not null	 primary key	,
+	state			varchar(30)	not null			
+);
+
+alter table states
+change state_id
+state_id int not null auto_increment add primary key;
+
+alter table states 
+add column country_id int,
+add constraint fk_states_countries foreign key(country_id) references countries(country_id);
+
+set foreign_key_checks = 0;
+
+alter table states
+change country_id
+country_id int not null;
+
+insert into states(state,country_id) value('mp',1);
+insert into states(state,country_id) values('up',1),('ap',1),('jk',1);
+insert into states(state,country_id) values('arizona',2),('texas',2);
+

@@ -1,0 +1,45 @@
+create table jobs
+(
+	job_id			int		not null	primary key	,
+	company_id		int		not null			,
+	job_title		varchar(50)	not null			,
+	branch_id		int		not null			,
+	department_id		int		not null			,
+	designation_id		int		not null			,
+	no_of_vacancies		int		not null			,
+	launch_date		date		not null			,
+	apply_last_date		date		not null			,
+	job_description		varchar(3000)	not null			,
+	experience_min		int		not null			,
+	experience_max		int		not null			,
+	ctc_min			int		not null			,
+	ctc_max			int		not null			
+);
+
+alter table jobs add constraint fk_jobs_companies
+foreign key(company_id)
+references companies(company_id);
+
+
+
+alter table jobs add constraint fk_jobs_branches
+foreign key(branch_id)
+references branches(branch_id);
+
+alter table jobs add constraint fk_jobs_departments
+foreign key(department_id)
+references departments(department_id);
+
+alter table jobs add constraint fk_jobs_designations
+foreign key(designation_id)
+references designations(designation_id);
+
+//we are dropping company_id column to avoid redundancy
+show indexes from jobs;
+alter table jobs drop foreign key fk_jobs_companies;
+alter table jobs drop index fk_jobs_companies;
+alter table jobs drop column company_id;
+
+alter table jobs
+change job_id
+job_id int not null auto_increment;

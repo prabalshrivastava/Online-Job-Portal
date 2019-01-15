@@ -1,0 +1,90 @@
+body {
+	/*background-color:blue;*/
+}
+td{
+	border: 2px outset #FFCFFF;
+	border-radius:8px;
+	padding:10px;
+	/*background-color:white;*/
+}
+.form_data{
+	width:100%;
+	border-radius:10px;
+}
+.td_label{
+	text-align:right;
+}
+.td_report{
+	display:none;
+	cursor:pointer;
+}
+
+.button{
+	text-align:center;
+}
+
+.button:hover{
+	cursor:pointer;
+	color:white;
+}
+
+
+#table_form{
+	float:left;
+}
+#table_report{
+	float:center;
+}
+
+.report_tr:hover{
+	color:red;
+	cursor:pointer;
+}
+
+#tr_report_message{
+	display:none;
+}
+
+input:invalid{
+	border:4px dashed red;
+}
+
+
+
+
+/* THIS CODE IS REGARDING SKIP BUTTON ON EVERY PAGE */
+.td_skip{
+	background-color:white;
+	text-align:center;
+}
+.td_skip:hover{
+	background-color:#FFCFFF;
+}
+.skip_button{
+	text-decoration:none;
+}
+.skip_button:hover{
+	color:white;
+}
+#skip{}
+
+
+/*	THIS IS REGARDING TD ELEMENT CONTAINING INPUT TYPE="HIDDEN"  */
+.hidden_element,.hidden_element>*{
+	visibility:hidden;
+	background-color:black;
+	display:none;
+}
+
+/* THIS IS REGARDING UPDATE(SUBMIT) BUTTON ON EVERY PAGE */
+
+#update,.submit,.update,input[type="submit"]{
+	width:100%;
+	border-radius:10px;
+	float:right;
+}
+
+iframe{
+	width:fit-content;
+	height:50px;
+}

@@ -1,0 +1,21 @@
+create table contacts
+(
+	contact_id		int		not null	primary key	,
+	contact_type_id		int		not null			,
+	user_id			int		not null			,
+	contact			varchar(50)	not null			
+);
+
+alter table contacts add constraint fk_contacts_contact_types
+foreign key(contact_type_id)
+references contact_types(contact_type_id);
+
+alter table contacts add constraint fk_contacts_users
+foreign key(user_id)
+references users(user_id);
+
+alter table contacts 
+change contact_id
+contact_id int not null auto_increment;
+
+

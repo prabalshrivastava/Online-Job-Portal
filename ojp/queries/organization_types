@@ -1,0 +1,11 @@
+create table organization_types
+(
+	organization_type_id	int		not null	primary key	auto_increment,
+	organization_id		varchar(50)	not null	unique
+		
+);
+
+insert into organization_types(organization_type) values('BOARD'),('UNIVERSITY');
+
+
+

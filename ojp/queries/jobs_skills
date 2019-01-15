@@ -1,0 +1,24 @@
+create table jobs_skills
+(
+	job_skill_id		int		not null	primary key	,
+	job_id			int		not null			,
+	skill_id		int		not null			
+);
+
+alter table jobs_skills add constraint
+foreign key(job_id)
+references jobs(job_id);
+
+alter table jobs_skills add constraint
+foreign key(skill_id)
+references skills(skill_id);
+
+alter table jobs_skills
+change job_skill_id
+job_skill_id int not null auto_increment;
+
+
+insert into jobs_skills(job_id,skill_id) values (3,2),(4,3),(5,4);
+insert into jobs_skills(job_id,skill_id) values (6,3),(7,4),(8,5);
+insert into jobs_skills(job_id,skill_id) values (9,3),(11,4);
+insert into jobs_skills(job_id,skill_id) values (10,3),(12,4);

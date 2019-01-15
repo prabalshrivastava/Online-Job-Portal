@@ -1,0 +1,42 @@
+td,table{
+	border: 2px outset #FFCFFF;
+	border-radius:10px;
+	padding:10px;
+}
+
+.pincode_divchild{
+	cursor:pointer;
+	padding:10px 55px;
+	width:auto;
+	height:auto;
+	border-radius:20px;
+}
+#pincode_div{
+	position: absolute;
+	border:1px outset #FFCFFF;
+	border-radius:10px;
+	background-color:white;
+	width:169px;
+	cursor:pointer;
+}
+.form_data{
+	width:100%;
+	border-radius:10px;
+}
+.localhide{
+	display:none;
+}
+
+#localpermanent,.trans{
+	transition:all 2s ease-in-out;
+}
+#localpermanent:checked ~ td[class="trans"]{
+	tansform:rotateX(180deg);
+}
+
+#localpermanent:hover,.trans:hover{
+/*	transform:rotateX(180deg);*/
+}
+
+
+

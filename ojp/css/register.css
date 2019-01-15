@@ -1,0 +1,15 @@
+#body{
+	color:black;
+	border:2px solid green;
+	padding:8%;
+}
+#registerhead{
+	color:blue;
+	padding:0,0,0,8%;
+}
+#registerform{
+	padding:0,0,0,8%;
+}
+input{
+	border-radius:10px;
+}

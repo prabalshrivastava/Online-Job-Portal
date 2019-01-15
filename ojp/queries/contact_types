@@ -1,0 +1,16 @@
+create table contact_types
+(
+	contact_type_id		int		not null	primary key	,
+	contact_type		varchar(30)	not null			
+);
+
+alter table contact_types
+change contact_type
+contact_type varchar(20) not null unique;
+
+alter table contact_types
+change contact_type_id
+contact_type_id int not null auto_increment;
+
+
+insert into contact_types(contact_type) values('Permanent Address'),('Local Address'),('Mobile Number'),('Alternate Mobile Number'),('Landline Number'),('Alternate Landline Number'),('Email'),('Alternate Email');

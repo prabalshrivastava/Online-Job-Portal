@@ -1,0 +1,145 @@
+a{
+	text-decoration:none;
+}
+
+li{
+	list-style:none;
+}
+
+#menu{
+	/*border:1px outset black;*/
+	border-radius:50px;
+	border-bottom-left-radius: 0px;
+    border-top-right-radius: 0px;
+	padding:15px;
+	width:fit-content;
+	/*background-color:#141414;*/
+}
+#menucontainer{
+	border:2px inset blue;
+	border-radius:50px;
+	border-top-right-radius:0px;
+	border-bottom-left-radius:0px;
+	background-color:#ff9eff;
+	padding:20px;
+	padding-top:0px;
+	width:fit-content;	
+	box-shadow: 0px 1px 50px #000000; 
+}
+#menucontainer:hover{
+	box-shadow: 0px 1px 50px red;
+}
+
+
+.submenu{
+	/*border:1px solid green;*/
+	border-radius:25px;
+	padding:10px;
+	margin:30px;
+	display:inline;
+	position:relative;
+	background-color:white;
+}
+
+/* MAIN MENU ITEMS */
+.menu_items{
+	background-color:#ff9eff;
+	/*border:1px outset red;*/
+	border-radius:25px;
+/*
+    border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+*/
+	color:white;
+	padding:10px;
+}
+
+
+/* LIST CONTAINING ANCHOR LINKS */
+.pg_ul{
+	/*border:1px solid pink;*/
+	border-radius:25px;
+	padding:10px;
+	width:225;
+	display:none;
+	position:absolute;
+	top:0px;
+	left:-15px;
+	margin:10px;
+}
+
+/* LIST ITEM FOR GIVING SPACE */
+.space{
+	visibility:hidden;
+}
+
+
+
+/* ANCHOR LINK */
+.pg_link{
+	border:1px solid red;
+	border-radius:25px;
+	border-bottom-left-radius:0px;
+	border-top-right-radius:0px;
+	/*padding:30px;*/
+	padding:10px;
+	padding-left:30px;
+	margin:3px;
+	
+}
+
+.sub_link{
+	border:1px solid yellow;
+	border-radius:25px;
+	border-bottom-right-radius:0px;
+	border-top-left-radius:0px;
+	padding:10px;
+	margin:10px;
+}
+
+/* ON HOVER OF menu_items or sub_menu(wraps menu_items) */
+li[class = "submenu"]:hover > ul[class = "pg_ul"]{
+	display:block;
+	position:absolute;
+}
+li[class = "submenu"]:hover{
+	/*border:1px outset #ff6bff;*/
+	background-color:#ff9eff;
+	transition:background-color 2s	cubic-bezier(0,.51,1,-0.51);
+}
+li[class = "submenu"]:hover > .menu_items{
+	background-color:white;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	color:black;
+	transition:all 1s;
+	transition:background-color 2s cubic-bezier(0,.51,1,-0.51);
+}
+li[class = "submenu"]:hover > .pg_ul > .pg_link{
+	background-color:black;
+}
+li[class = "submenu"]:hover > .pg_ul > .pg_link > .sub_link{
+	background-color:yellow;
+	color:red;
+	/*transition:background-color 3 ease-in;*/
+}
+
+
+
+
+
+
+
+li[class = "pg_link"]:focus{
+	background-color:white;
+}
+li[class = "pg_link"]:hover > .sub_link{
+	background-color:black;
+}
+li[class = "sub_link"]:focus{
+	background-color:black;
+}
+
+*{
+	transition:all .6s ease;
+}

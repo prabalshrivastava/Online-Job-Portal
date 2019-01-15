@@ -1,0 +1,76 @@
+*{
+	transition:all .5s ease-in-out;
+}
+#ojp{
+	color:red;
+	border:2px solid yellow;
+	padding:0px,0px,0px,400px;
+	cursor:pointer;
+	transition:all 2s ease-in-out;
+	text-align:center;
+	-webkit-animation:bounce 10s infinite;
+}
+
+keyframes mymove{
+	50%{
+			
+	}
+	100%{
+		
+	}
+}
+
+#ojp:hover{
+	color:black;
+}
+
+#ojp_div{
+	border:3px solid red;
+}
+
+._ojp_{
+	/*border:1px solid blue;*/
+	display:inline;
+	transition:2s ease-in-out;
+}
+
+._ojp_:hover{
+	transform:scaleX(3);
+	transform:scaleY(3);
+	color:yellow;
+}
+
+#ojp_online:hover + #ojp_job{
+	color:blue;
+}
+
+#ojp_job:hover + #ojp_portal{
+	color:orange;
+}
+
+#ojp_portal:hover ~ #ojp_job ~ #ojp_online{
+	color:violet;
+}
+
+#ojp_online:hover,#ojp_job:hover,#ojp_portal:hover{
+	/*transform:skewY(180deg);*/
+}
+
+.ojp{
+	position-top:1000px;
+	margin:	2.0px;
+	font-size:48px;
+	font-weight:bold;
+	font-family:sans-serif
+	font-family:Comic Sans MS;
+	font-family:cursive;
+	transition:all 0.7s ease-in-out;
+/*	border:1px solid black;*/
+}
+
+.ojp:hover{
+	transform:rotateX(180deg);	
+	transform:rotateY(360deg);
+	transform:rotateZ(360deg);
+	/*background-color:green;*/
+}

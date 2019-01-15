@@ -1,0 +1,28 @@
+create table candidate_language
+(
+	candidate_language_id		int	not null	primary key	,
+	language_id			int	not null			,
+	language_capability_id		int	not null			
+);
+
+alter table candidate_language
+add constraint fk_candidate_language_laguages
+foreign key(language_id)
+references languages(language_id);
+
+alter table candidate_language
+add constraint fk_candidate_language_language_capabilities
+foreign key(language_capability_id)
+references language_capabilities(language_capability_id);
+
+alter table candidate_language
+change candidate_language_id
+candidate_language_id int not null auto_increment;
+
+alter table candidate_language 
+add column candidate_id int not null;
+
+alter table candidate_language
+add constraint fk_candidate_language_candidate
+foreign key(candidate_id)
+references candidates(candidate_id);

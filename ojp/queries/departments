@@ -1,0 +1,11 @@
+create table departments
+(
+	department_id		int		not null	primary key	,
+	department		varchar(50)
+);
+
+alter table departments
+change department_id
+department_id int not null auto_increment;
+
+insert into departments(department) values('Sales-marketing'),('customer-care'),('Production'),('Research and Development'),('Purchasing'),('Human Resource Management'),('Accounting and Finance.');

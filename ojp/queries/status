@@ -1,0 +1,9 @@
+create table status
+(
+	status_id		int		not null	primary key	,
+	status			varchar(15)	not null			
+);
+
+alter table status
+change status_id
+status_id int not null auto_increment;

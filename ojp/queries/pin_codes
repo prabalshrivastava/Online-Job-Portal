@@ -1,0 +1,27 @@
+create table pin_codes
+(
+	pin_code_id		int		not null	primary key	,
+	pin_code		varchar(10)	not null			,
+	city_id			int		not null			
+);
+
+alter table pin_codes 
+change pin_code 
+pin_code int not null unique;
+
+alter table pin_codes add constraint fk_pin_codes_cities
+foreign key(city_id)
+references cities(city_id);
+
+
+alter table pin_codes
+change pin_code_id
+pin_code_id int not null auto_increment;
+
+insert into pin_codes(pin_code,city_id) values('482001',1),('482002',1),('482004',1),('223487',3),('213323',3);
+insert into pin_Codes(pin_code,city_id) values('483001',2),('483773',2),('482053',2),('483775',2),('483222',2),('482006',5),('482010',5),('482051',5),('483220',5),('483221',5),('483445',5),('483880',4),('482015',4),('483004',4);
+insert into pin_Codes(pin_code,city_id) values('583001',6),('583773',6),('582053',6),('583775',6),('583222',6),('582006',7),('582010',7),('582051',7),('583220',7),('583221',7),('583555',7),('583880',7),('582015',7),('583005',7);
+insert into pin_codes(pin_code,city_id) values('40012',23),('40220',23),('40204',24),('34237',24),('33323',23);
+insert into pin_codes(pin_code,city_id) values('488008',8),('488908',14),('488004',15),('889487',9),('889989',16);
+insert into pin_codes(pin_code,city_id) values('412010',21),('410010',20),('41004',10),('10101',11),('101011',17);
+insert into pin_codes(pin_code,city_id) values('421012',18),('420012',19),('42004',12),('2134127',13),('213133',22);

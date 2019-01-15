@@ -1,0 +1,29 @@
+create table companies
+(
+	company_id		int		not null	primary key	,
+	user_id			int						,
+	industry_type_id	int		not null				,
+	logo_path		varchar(50)					,
+	website			varchar(50)					,
+	mission			varchar(2000)					,
+	vision			varchar(2000)					,
+	history			varchar(2000)					,
+	awards			varchar(2000)					,
+	about_us		varchar(2000)					
+);
+
+alter table companies add constraint fk_companies_users
+foreign key(user_id)
+references users(user_id);
+
+alter table companies add constraint fk_companies_industry_types
+foreign key(industry_type_id)
+references industry_types(industry_type_id);
+
+alter table companies
+change company_id
+company_id int not null auto_increment;
+
+alter table companies
+change industry_type_id
+industry_type_id int;

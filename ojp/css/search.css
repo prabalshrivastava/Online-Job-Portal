@@ -1,0 +1,112 @@
+#parent_container{
+	width:100%;
+}
+#parent_container > tr > td{
+}
+
+.jobcontainer{
+
+}
+.jobwrapper{
+	border: 2px outset #FFCFFF;
+	border-radius:8px;
+	padding:10px;
+	margin:20px;
+	width:fit-content;
+	display:inline-block;
+	color:blue;
+}
+.jobwrapper:hover{
+	cursor:pointer;
+	border: 3px outset #141414;
+	border-radius:8px;
+	box-shadow: 0px 1px 50px #000000; 
+	/*
+	-webkit-box-shadow: 0px 1px 50px #000000; 
+	-moz-box-shadow: 0px 1px 50px #000000; 
+	*/
+}
+.jobwrapper > *{
+	margin:10px;
+}
+
+.jobcontent > *{
+	margin:10px;
+}
+.cross{
+	color:grey;
+	float:right;
+	cursor:pointer;
+	opacity: 0;
+}
+.cross:hover{
+	color:grey;
+	opacity:100;
+}
+.companylogo{
+	margin:0px;
+	height:100px;
+	width:100px;
+}
+.companylogo > a > figure > img{
+	margin:0px;
+	height:100px;
+	width:100px;
+}
+figcaption{
+	padding:20px;	
+}
+
+.viewdetails,.apply{
+	border:1px inset blue;
+	border-radius:8px;
+	padding:10px;
+}
+
+.apply:hover,.viewdetails:hover{
+	color:white;
+	font:bold;
+	background-color:blue;
+}
+.jobskills{
+	padding:10px;
+    margin-top: 10px;
+}
+.jobskills:hover{
+/*	border:1px outset blue;*/
+	border-radius:8px;
+    color: white;
+    background-color: #03A9F4;
+}
+
+
+.city{
+	padding:10px;
+	border-radius:8px;
+	width:fit-content;
+}
+.city:hover {
+    color: white;
+    background-color: aqua;
+}
+
+.salary{
+	padding:10px;
+	width:fit-content;
+	border-radius:8px;
+}
+.salary:hover{
+	background-color: lawngreen;
+	color:white;
+}
+
+.designation_experience,.desingation_experience > *{
+	display:block;
+	padding:10px;
+	border-radius:8px;
+}
+.designation_experience:hover,.designation_experience > *:hover{
+	padding:10px;
+	background-color:red;
+	color:white;
+}

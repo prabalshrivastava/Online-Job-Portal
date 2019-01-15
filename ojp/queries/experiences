@@ -1,0 +1,32 @@
+create table experiences
+(
+	experience_id		int		not null	primary key	,
+	candidate_id		int		not null			,
+	organization_name	varchar(50)	not null			,
+	industry_type_id	int		not null			,
+	department_id		int		not null			,
+	designation_id		int		not null			,
+	joining_date		date		not null			,
+	relieving_date		date						,
+	ctc			int		not null			
+);
+
+alter table experiences add constraint fk_experiences_candidates
+foreign key(candidate_id)
+references candidates(candidate_id);
+
+alter table experiences add constraint fk_experiences_industry_types
+foreign key(industry_type_id)
+references industry_types(industry_type_id);
+
+alter table experiences add constraint fk_experiences_departments
+foreign key(department_id)
+references departments(department_id);
+
+alter table experiences add constraint fk_experiences_designations
+foreign key(designation_id)
+references designations(designation_id);
+
+alter table experiences
+change experience_id
+experience_id int not null auto_increment;

@@ -1,0 +1,15 @@
+#table_report{
+	float:center;
+}
+#table_form{
+	float:left;
+}
+
+.report_tr:hover{
+	color:red;
+	cursor:pointer;
+}
+
+#tr_report_message{
+	display:none;
+}

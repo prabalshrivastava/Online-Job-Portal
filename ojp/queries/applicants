@@ -1,0 +1,24 @@
+create table applicants
+(	
+	applicant_id		int		not null	primary key	,
+	job_id			int		not null			,
+	candidate_id		int		not null			,
+	status_id		int		not null			,
+	apply_date		date		not null			
+);
+
+alter table applicants add constraint fk_applicants_jobs
+foreign key(job_id)
+references jobs(job_id);
+
+alter table applicants add constraint fk_applicants_candidates
+foreign key(candidate_id)
+references candidates(candidate_id);
+
+alter table applicants add constraint fk_applicants_status
+foreign key(status_id)
+references status(status_id);
+
+alter table applicants
+change applicant_id
+applicant_id int not null auto_increment;

@@ -1,0 +1,424 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1
+Server version: 5.0.45-community-nt MySQL Community Edition (GPL)
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql> use ojp
+Database changed
+mysql> show tables
+    -> ;
++---------------+
+| Tables_in_ojp |
++---------------+
+| candidates    |
++---------------+
+1 row in set (0.08 sec)
+
+mysql> desc candidates;
++---------------------+---------------+------+-----+---------+-------+
+| Field               | Type          | Null | Key | Default | Extra |
++---------------------+---------------+------+-----+---------+-------+
+| candidate_id        | int(11)       | NO   | PRI |         |       |
+| date_of_birth       | date          | NO   |     |         |       |
+| gender              | tinyint(1)    | NO   |     |         |       |
+| hobbies             | varchar(100)  | YES  |     | NULL    |       |
+| user_id             | int(11)       | NO   |     |         |       |
+| marital_status      | tinyint(1)    | NO   |     |         |       |
+| country_id          | int(11)       | NO   |     |         |       |
+| intrests            | varchar(1000) | YES  |     | NULL    |       |
+| profile_pic_path    | varchar(100)  | YES  |     | NULL    |       |
+| resume_file_path    | varchar(100)  | YES  |     | NULL    |       |
+| resume_upload_date  | date          | YES  |     | NULL    |       |
+| strengths           | varchar(1000) | YES  |     | NULL    |       |
+| weaknesses          | varchar(1000) | YES  |     | NULL    |       |
+| curricular_activity | varchar(1000) | YES  |     | NULL    |       |
++---------------------+---------------+------+-----+---------+-------+
+14 rows in set (0.14 sec)
+
+mysql> create table users
+    -> (
+    ->  user_id         int             not null        primary key     ,
+    ->  user_name       varchar(50)     not null                        ,
+    ->  email           varchar(50)     not null        unique          ,
+    ->  password        varchar(30)     not null                        ,
+    ->  user_type_id    int             not null
+    -> );
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> create table companies
+    -> (
+    ->  company_id              int             not null        primary key     ,
+    ->  user_id                 int                                             ,
+    ->  industry_type_id        int             not null                                ,
+    ->  logo_path               varchar(50)                                     ,
+    ->  website                 varchar(50)                                     ,
+    ->  mission                 varchar(2000)                                   ,
+    ->  vision                  varchar(2000)                                   ,
+    ->  history                 varchar(2000)                                   ,
+    ->  awards                  varchar(2000)                                   ,
+    ->  about_us                varchar(2000)
+    -> );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> create table branches
+    -> (
+    ->  branch_id       int             not null        primary key     ,
+    ->  branch_name     varchar(50)     not null                        ,
+    ->  address         varchar(500)    not null                        ,
+    ->  pin_code_id     int             not null                        ,
+    ->  contact_person  varchar(50)     not null                        ,
+    ->  conntact_number varchar(50)     not null                        ,
+    ->  email           varchar(50)     not null                        ,
+    ->  company_id      int             not null
+    -> );
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> create table qualifications
+    -> (
+    ->  qualification_id        int             not null        primary key     ,
+    ->  course_id               int             not null                        ,
+    ->  candidate_id            int             not null                        ,
+    ->  organization_id         int             not null                        ,
+    ->  passing_year            int             not null                        ,
+    ->  score                   float           not null                        ,
+    ->  certificate_path        varchar(150)                                    ,
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 10
+mysql> create table qualifications
+    -> (
+    ->  qualification_id        int             not null        primary key     ,
+    ->  course_id               int             not null                        ,
+    ->  candidate_id            int             not null                        ,
+    ->  organization_id         int             not null                        ,
+    ->  passing_year            int             not null                        ,
+    ->  score                   float           not null                        ,
+    ->  certificate_path        varchar(150)
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql>  create table experiences
+    -> (
+    ->  experience_id           int             not null        primary key     ,
+    ->  candidate_id            int             not null                        ,
+    ->  organization_name       varchar(50)     not null                        ,
+    ->  industry_type_id        int             not null                        ,
+    ->  department_id           int             not null                        ,
+    ->  designation_id          int             not null                        ,
+    ->  joining_date            date            not null                        ,
+    ->  relieving_date          date                                            ,
+    ->  ctc                     int             not null
+    -> );
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> create table candidate_skills
+    -> (
+    ->  candidate_skill_id      int             not null        primary key     ,
+    ->  candidate_id            int             not null                        ,
+    ->  skill_id                int             not null                        ,
+    ->  version                 varchar(10)                                     ,
+    ->  duration                varchar(20)     not null
+    -> );
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> create table projects
+    -> (
+    ->  project_id      int             not null        primary key     ,
+    ->  title           varchar(30)     not null                        ,
+    ->  candidate_id    int             not null                        ,
+    ->  members         int             not null                        ,
+    ->  duration        varchar(20)     not null                        ,
+    ->  details         varchar(2000)   not null                        ,
+    ->  other_details   varchar(1000)
+    -> );
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> create table jobs
+    -> (
+    ->  job_id                  int             not null        primary key     ,
+    ->  company_id              int             not null                        ,
+    ->  job_title               varchar(50)     not null                        ,
+    ->  branch_id               int             not null                        ,
+    ->  department_id           int             not null                        ,
+    ->  designation_id          int             not null                        ,
+    ->  no_of_vacancies         int             not null                        ,
+    ->  launch_date             date            not null                        ,
+    ->  apply_last_date         date            not null                        ,
+    ->  job_description         varchar(3000)   not null                        ,
+    ->  experience_min          int             not null                        ,
+    ->  experience_max          int             not null                        ,
+    ->  ctc_min                 int             not null                        ,
+    ->  ctc_max                 int             not null
+    -> );
+Query OK, 0 rows affected (0.20 sec)
+
+mysql> create table job_qualification
+    -> (
+    ->  job_qualification_id            int     not null        primary key     ,
+    ->  job_id                          int     not null                        ,
+    ->  course_id                       int     not null
+    -> );
+Query OK, 0 rows affected (0.16 sec)
+
+mysql>
+mysql> create table jobs_skills
+    -> (
+    ->  job_skill_id            int             not null        primary key     ,
+    ->  job_id                  int             not null                        ,
+    ->  skill_id                int             not null                        ,
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 6
+mysql> create table jobs_skills
+    -> (
+    ->  job_skill_id            int             not null        primary key     ,
+    ->  job_id                  int             not null                        ,
+    ->  skill_id                int             not null
+    -> );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> create table job_score_criteria
+    -> (
+    ->  jab_score_criteria_id           int     not null        primary key     ,
+    ->  job_id                          int     not null                        ,
+    ->  ssc_score                       int     not null                        ,
+    ->  hsc_diploma_score               int     not null                        ,
+    ->  graduation                      int     not null
+    -> );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql>
+mysql> create table job_shift
+    -> (
+    ->  job_shift_id            int             not null        primary key     ,
+    ->  job_id                  int             not null                        ,
+    ->  start_hour              time            not null                        ,
+    ->  end_hour                time            not null
+    -> );
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> create table applicants
+    -> (
+    ->  applicant_id            int             not null        primary key     ,
+    ->  job_id                  int             not null                        ,
+    ->  candidate_id            int             not null                        ,
+    ->  status_id               int             not null                        ,
+    ->  apply_date              date            not null
+    -> );
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> create table course
+    -> (
+    ->  course_id               int             not null        primary key     ,
+    ->  course                  varchar(10)     not null                        ,
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 5
+mysql> create table course
+    -> (
+    ->  course_id               int             not null        primary key     ,
+    ->  course                  varchar(10)     not null
+    -> );;
+Query OK, 0 rows affected (0.14 sec)
+
+ERROR:
+No query specified
+
+mysql> create table course
+    -> (
+    ->  course_id               int             not null        primary key     ,
+    ->  course                  varchar(10)     not null
+    -> );
+ERROR 1050 (42S01): Table 'course' already exists
+mysql> create table states
+    -> (
+    ->  state_id                int             not null         primary key    ,
+    ->  state                   varchar(30)     not null
+    -> );
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> create table cities
+    -> (
+    ->  city_id                 int             not null        primary key     ,
+    ->  city                    varchar(30)     not null                        ,
+    ->  state_id                int             not null
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> create table pin_codes
+    -> (
+    ->  pin_code_id             int             not null        primary key     ,
+    ->  pin_code                varchar(10)     not null                        ,
+    ->  city_id                 int             not null                        ,
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 6
+mysql> create table pin_codes
+    -> (
+    ->  pin_code_id             int             not null        primary key     ,
+    ->  pin_code                varchar(10)     not null                        ,
+    ->  city_id                 int             not null
+    -> );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> create table contact_types
+    -> (
+    ->  contact_type_id         int             not null        primary key     ,
+    ->  contact_type            varchar(20)     not null
+    -> );
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> create table contacts
+    -> (
+    ->  contact_id              int             not null        primary key     ,
+    ->  contact_type_id         int             not null                        ,
+    ->  user_id                 int             not null                        ,
+    ->  contact                 varchar(50)     not null
+    -> );
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> create table user_addresses
+    -> (
+    ->  user_address_id         int             not null        primary key     ,
+    ->  user_id                 int             not null                        ,
+    ->  contact_type_id         int             not null                        ,
+    ->  pin_code_id             int             not null                        ,
+    ->  address                 varchar(300)    not null
+    -> );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> create table organization
+    -> (
+    ->  organization_id         int             not null        primary key     ,
+    ->  organization            varchar(50)     not null                        ,
+    ->  organization_type_id    int             not null
+    ->
+    -> );
+Query OK, 0 rows affected (0.19 sec)
+
+mysql> create table organization_types
+    -> (
+    ->  organization_id         int             not null        primary key     ,
+    ->  organization_type_id    int             not null
+    -> );
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> create table countries
+    -> (
+    ->  country_id              int             not null        primary key     ,
+    ->  country                 varchar(30)     not null
+    -> );
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> create table industry_types
+    -> (
+    ->  industry_type_id        int             not null        primary key     ,
+    ->  industry_type           varchar(30)     not null
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> create table departments
+    -> (
+    ->  department_id           int             not null        primary key     ,
+    ->  department              varchar(20)
+    -> );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> create table designations
+    -> (
+    ->  designation_id          int             not null        primary key     ,
+    ->  designation             varchar(20)     not null
+    -> );
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> create table user_types
+    -> (
+    ->  user_type_id            int             not null        primary key     ,
+    ->  user_type               varchar(20)     not null
+    -> );
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> create table laguages
+    -> (
+    ->  language_id             int             not null        primary key     ,
+    ->  language                varchar(20)     not null
+    -> );
+Query OK, 0 rows affected (0.22 sec)
+
+mysql> create table candidate_language
+    -> (
+    ->  candidate_language_id           int     not null        primary key     ,
+    ->  language_id                     int     not null                        ,
+    ->  language_capability_id          int     not null
+    -> );
+Query OK, 0 rows affected (0.13 sec)
+
+mysql>
+mysql> create table skills
+    -> (
+    ->  skill_id                int             not null        primary key     ,
+    ->  skill                   varchar(20)     not null        unique
+    -> );
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> create table status
+    -> (
+    ->  status_id               int             not null        primary key     ,
+    ->  status                  varchar(15)     not null
+    -> );
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> create table company_followers
+    -> (
+    ->  company_followers_id            int     not null        primary key     ,
+    ->  company_id                      int     not null                        ,
+    ->  candidate_id                    int     not null
+    -> );
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> create table language_capabilities
+    -> (
+    ->  language_capability_id  int             not null        primary key     ,
+    ->  language_capability     varchar(10)     not null
+    -> );
+Query OK, 0 rows affected (0.11 sec)
+
+mysql>
+mysql> show tables;
++-----------------------+
+| Tables_in_ojp         |
++-----------------------+
+| applicants            |
+| branches              |
+| candidate_language    |
+| candidate_skills      |
+| candidates            |
+| cities                |
+| companies             |
+| company_followers     |
+| contact_types         |
+| contacts              |
+| countries             |
+| course                |
+| departments           |
+| designations          |
+| experiences           |
+| industry_types        |
+| job_qualification     |
+| job_score_criteria    |
+| job_shift             |
+| jobs                  |
+| jobs_skills           |
+| laguages              |
+| language_capabilities |
+| organization          |
+| organization_types    |
+| pin_codes             |
+| projects              |
+| qualifications        |
+| skills                |
+| states                |
+| status                |
+| user_addresses        |
+| user_types            |
+| users                 |
++-----------------------+
+34 rows in set (0.00 sec)

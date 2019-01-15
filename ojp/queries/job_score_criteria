@@ -1,0 +1,43 @@
+
+create table job_score_criteria
+(	
+	jab_score_criteria_id		int	not null	primary key	,
+	job_id				int	not null			,
+	ssc_score			int	not null			,
+	hsc_diploma_score		int	not null			,
+	graduation			int	not null			
+);
+
+alter table job_score_criteria add constraint
+foreign key(job_id)
+references jobs(job_id);
+
+//dropping foreign key because of mistake
+show indexes from job_score_criteria;
+
+mysql> show indexes from job_score_criteria;
++--------------------+------------+----------+--------------+-----------------------+-----------+-------------+----------+--------+------+------------+
+| Table              | Non_unique | Key_name | Seq_in_index | Column_name           | Collation | Cardinality | Sub_part | Packed | Null | Index_type |
++--------------------+------------+----------+--------------+-----------------------+-----------+-------------+----------+--------+------+------------+
+| job_score_criteria |          0 | PRIMARY  |            1 | jab_score_criteria_id | A         |           0 |     NULL | NULL   |      | BTREE      |
+| job_score_criteria |          1 | job_id   |            1 | job_id                | A         |           0 |     NULL | NULL   |      | BTREE      |
++--------------------+------------+----------+--------------+-----------------------+-----------+-------------+----------+--------+------+------------+
+2 rows in set (0.00 sec)
+
+alter table job_score_criteria drop foreign key job_id;
+
+alter table job_score_criteria drop index job_id;
+
+drop table job_score_criteria;
+
+alter table job_score_criteria add constraint fk_job_score_criteria_jobs
+foreign key(job_id)
+references jobs(job_id);
+
+alter table job_score_criteria
+change jab_score_criteria_id
+job_score_criteria_id int not null auto_increment;
+
+insert into job_score_criteria(job_id,ssc_score,hsc_diploma_score,graduation) values(3,123781,39481093,12873817),(4,123781,39481093,12873817),(5,123781,39481093,12873817),(11,123781,39481093,12873817),(12,123781,39481093,12873817);
+
+

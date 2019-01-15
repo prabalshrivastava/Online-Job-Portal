@@ -1,0 +1,18 @@
+create table projects
+(
+	project_id	int		not null	primary key	,
+	title		varchar(30)	not null			,
+	candidate_id	int		not null			,
+	members		int		not null			,
+	duration	varchar(20)	not null			,
+	details		varchar(2000)	not null			,
+	other_details	varchar(1000)					
+);
+
+alter table projects add constraint fk_projects_candidates
+foreign key(candidate_id)
+references candidates(candidate_id);
+
+alter table projects
+change project_id
+project_id int not null auto_increment;

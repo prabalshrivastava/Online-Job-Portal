@@ -1,0 +1,13 @@
+.rws{
+	width:auto;
+}
+
+#tr_addmorelang,#td_addmorelang{
+	text-align:center;
+	background-color:white;
+	font-weight:bold;
+	color:#FFCFFF;
+	cursor:pointer;
+	border:10px solid white;
+	border-radius:0px;
+}

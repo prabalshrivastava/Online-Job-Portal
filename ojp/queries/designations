@@ -1,0 +1,13 @@
+create table designations
+(
+	designation_id		int		not null	primary key	,
+	designation		varchar(50)	not null			
+);
+
+alter table designations
+change designation_id
+designation_id int not null auto_increment;
+
+insert into designations(designation) values('Module Lead'),('Team Lead'),('Senior Team Lead'),('Account Manager'),('Architect'),('Technical Specialist'),('Delivery Manager'),('Delivery Head'),('Business Analyst'),('Delivery Partner');
+insert into designations(designation) values('associate'),('software Engineer'),('senior Software Engineer'),('team Lead/Technical Lead'),('Project Manager/Project Lead/Technical Architect'),('senior PM/Senior PL'),('associate Director(Purely managerial)'),('director'),('associate Vice President(AVP)'),('vice-President'),('chief Executive Officer.');
+insert into designations(designation) values('associate HR'),('executive'),('senior executive'),('hR Manager'),('senior HR Manager'),('aVP'),('vP'),('cFO(Chief Financial Officer)'),('accountant'),('senior Accountant'),('manager'),('senior Manager'),('aVP'),('vP'),('cFO');
