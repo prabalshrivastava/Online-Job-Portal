@@ -1,0 +1,10 @@
+INSERT INTO ojp.job_shift (job_shift_id, job_id, start_hour, end_hour) VALUES (1, 3, '23:58:00', '12:58:00');
+INSERT INTO ojp.job_shift (job_shift_id, job_id, start_hour, end_hour) VALUES (2, 4, '23:58:00', '12:58:00');
+INSERT INTO ojp.job_shift (job_shift_id, job_id, start_hour, end_hour) VALUES (3, 5, '23:58:00', '12:58:00');
+INSERT INTO ojp.job_shift (job_shift_id, job_id, start_hour, end_hour) VALUES (4, 6, '23:58:00', '12:58:00');
+INSERT INTO ojp.job_shift (job_shift_id, job_id, start_hour, end_hour) VALUES (5, 7, '23:58:00', '12:58:00');
+INSERT INTO ojp.job_shift (job_shift_id, job_id, start_hour, end_hour) VALUES (6, 8, '23:58:00', '12:58:00');
+INSERT INTO ojp.job_shift (job_shift_id, job_id, start_hour, end_hour) VALUES (7, 9, '23:58:00', '12:58:00');
+INSERT INTO ojp.job_shift (job_shift_id, job_id, start_hour, end_hour) VALUES (8, 10, '23:58:00', '12:58:00');
+INSERT INTO ojp.job_shift (job_shift_id, job_id, start_hour, end_hour) VALUES (9, 11, '23:58:00', '12:58:00');
+INSERT INTO ojp.job_shift (job_shift_id, job_id, start_hour, end_hour) VALUES (10, 12, '23:58:00', '12:58:00');

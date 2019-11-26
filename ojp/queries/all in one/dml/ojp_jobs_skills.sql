@@ -1,0 +1,10 @@
+INSERT INTO ojp.jobs_skills (job_skill_id, job_id, skill_id) VALUES (1, 3, 2);
+INSERT INTO ojp.jobs_skills (job_skill_id, job_id, skill_id) VALUES (2, 4, 3);
+INSERT INTO ojp.jobs_skills (job_skill_id, job_id, skill_id) VALUES (3, 5, 4);
+INSERT INTO ojp.jobs_skills (job_skill_id, job_id, skill_id) VALUES (4, 6, 3);
+INSERT INTO ojp.jobs_skills (job_skill_id, job_id, skill_id) VALUES (5, 7, 4);
+INSERT INTO ojp.jobs_skills (job_skill_id, job_id, skill_id) VALUES (6, 8, 5);
+INSERT INTO ojp.jobs_skills (job_skill_id, job_id, skill_id) VALUES (7, 9, 3);
+INSERT INTO ojp.jobs_skills (job_skill_id, job_id, skill_id) VALUES (8, 11, 4);
+INSERT INTO ojp.jobs_skills (job_skill_id, job_id, skill_id) VALUES (9, 10, 3);
+INSERT INTO ojp.jobs_skills (job_skill_id, job_id, skill_id) VALUES (10, 12, 4);

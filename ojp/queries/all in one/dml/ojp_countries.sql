@@ -1,0 +1,1 @@
+INSERT INTO ojp.countries (country_id, country) VALUES (1, 'india');

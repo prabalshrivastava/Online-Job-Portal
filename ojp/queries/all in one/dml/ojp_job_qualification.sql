@@ -1,0 +1,14 @@
+INSERT INTO ojp.job_qualification (job_qualification_id, job_id, course_id) VALUES (1, 6, 1);
+INSERT INTO ojp.job_qualification (job_qualification_id, job_id, course_id) VALUES (2, 7, 2);
+INSERT INTO ojp.job_qualification (job_qualification_id, job_id, course_id) VALUES (3, 8, 4);
+INSERT INTO ojp.job_qualification (job_qualification_id, job_id, course_id) VALUES (4, 9, 5);
+INSERT INTO ojp.job_qualification (job_qualification_id, job_id, course_id) VALUES (5, 6, 6);
+INSERT INTO ojp.job_qualification (job_qualification_id, job_id, course_id) VALUES (6, 7, 9);
+INSERT INTO ojp.job_qualification (job_qualification_id, job_id, course_id) VALUES (7, 8, 7);
+INSERT INTO ojp.job_qualification (job_qualification_id, job_id, course_id) VALUES (8, 9, 8);
+INSERT INTO ojp.job_qualification (job_qualification_id, job_id, course_id) VALUES (9, 10, 1);
+INSERT INTO ojp.job_qualification (job_qualification_id, job_id, course_id) VALUES (10, 11, 2);
+INSERT INTO ojp.job_qualification (job_qualification_id, job_id, course_id) VALUES (11, 12, 4);
+INSERT INTO ojp.job_qualification (job_qualification_id, job_id, course_id) VALUES (12, 3, 5);
+INSERT INTO ojp.job_qualification (job_qualification_id, job_id, course_id) VALUES (13, 5, 7);
+INSERT INTO ojp.job_qualification (job_qualification_id, job_id, course_id) VALUES (14, 4, 8);
