@@ -9,7 +9,7 @@
 				maxIdle="30"
 				maxWait="15000"
 				username="root"
-				password="1234"
+				password="root"
 				driverClassName="com.mysql.jdbc.Driver"
 				uri="jdbc:mysql://localhost:3306/ojp" />
 	

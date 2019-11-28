@@ -1,0 +1,49 @@
+apply animations and transitions in header				vp	
+include header and menu in each page					vp
+create menu for company							
+create add more for experience details and project details page		v	
+apply email and password encryption					
+apply authorization							
+complete resume upload servlet						
+complete skills page							vh
+complete search page							
+complete company logo upload						v
+complete jobs page							vh
+complete post new jobs page						vh
+complete personal details page using formdata and file upload		
+repair others page							
+add skip button every page						v
+apply filters in qualifications page					
+complete dto								
+complete javascript part of every page					vp
+models not used ------->applicant status candidateskill companyfollower
+implement comparator and comparable for each model class		
+correct input type="number" on every page				v
+
+
+
+
+
+
+
+					create collect methods()	create add more button on everypage
+									and show records on every page
+private ArrayList<Applicant> applicants;		v				
+private ArrayList<Branch> branches;			v				v
+private ArrayList<CandidateLanguage> candidateLanguages;v				vp
+private ArrayList<CandidateSkill> candidateSkills;	v				vp
+private Company company;								
+private ArrayList<CompanyFollower> companyFollowers;	v				
+private ArrayList<Contact> contacts;			v				no need
+private ArrayList<Experience> experiences;		v 				v
+private ArrayList<Job> jobs;				v tested			vp	
+private ArrayList<JobQualification> jobQualifications;	v 				vp
+private JobScoreCriteria jobScoreCriteria;						
+private JobShift jobShift;								
+private ArrayList<JobSkill> jobSkills;			v				vp
+private ArrayList<Project> projects;			v tested			v
+private Qualification qualification;							
+private Status status;									
+private User user;									
+private ArrayList<UserAddress> userAddresses;		v				no need
+private UserType userType;								
